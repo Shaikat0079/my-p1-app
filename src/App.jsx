@@ -1,63 +1,31 @@
+import Actor from './Actor'
 import './App.css'
+import Singer from './Singer'
+// import Todo from './Todo'
 
-function App() {
 
+function App(){
 
-  return (
+  const actors = [
+    'Bappa Raj','Omor Sunny', 'Salman Shah','Jasim','Anwar'
+  ]
+
+  const singers = [
+    {id:1, sName: 'Dr.Mahfuz',age:68},
+    {id:2, sName: 'Tahsan',age:68},
+    {id:3, sName: 'Dr.Mahfuz',age:68},
+    {id:4, sName: 'Dr.Mahfuz',age:68},
+
+  ]
+  return(
     <>
-      <h1>Vite And React</h1>
-      <Person></Person>
-      <Sports></Sports>
-      <Student sName='Shaikat' dept='Software'></Student>
-      <Developer dName='Alpha' tech="React"></Developer>
+    {
+      singers.map(singer=><Singer key={singer.id} singer={singer}></Singer>)
+    }
+      {actors.map((actor,index)=><Actor actor={actor} key={index}></Actor>)}
     </>
   )
 }
 
-function Student({sName,dept}){
-  return (
-    <div className='student'>
-      <h2>Name: {sName}</h2>
-      <h4>Dept: {dept}</h4>
-    </div>
-  )
-}
-function Person(){
 
-  const personStyle = {
-    color: 'red',
-    fontSize: 50,
-  }
-  const age = 28;
-  const pName = "Alpha";
-  return(
-    <div style={personStyle}>
-      <p>I am a Person!</p>
-      <p>My age is {age}</p>
-      <p>My name is {pName}</p>
-    </div>
-  )
-}
-
-function Developer({dName,tech}){
-  // console.log(props)
-  return (
-    <div style={{
-      border:'2px solid green',
-      borderRadius:'20px'
-    }}>
-      <h3>Developer: {dName}</h3>
-      <p>Technology: {tech}</p>
-    </div>
-  )
-}
-
-function Sports(){
-  return(
-    <div>
-      <h3>Cricket</h3>
-      <p>Playing and Loosing!</p>
-    </div>
-  )
-}
 export default App
